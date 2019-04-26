@@ -17,7 +17,9 @@ routes.post('/signup', upload.single('avatar'), UserController.store)
 
 routes.use('/app', authMiddleware)
 routes.get('/app/dashboard', (req, res) => {
-  return res.send('logado')
+  return res.render('dashboard')
 })
+
+routes.get('/app/logout', SessionController.destroy)
 
 module.exports = routes
